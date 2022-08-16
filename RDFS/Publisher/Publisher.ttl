@@ -1,0 +1,1043 @@
+# baseURI: http://example.org/Publisher
+# prefix: Publisher
+
+@prefix : <http://example.org/Publisher#> .
+@prefix Publisher: <http://example.org/Publisher#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/Publisher>
+  rdf:type owl:Ontology ;
+.
+Publisher:Address
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:BookStore ;
+  rdfs:label "Address" ;
+  rdfs:range xsd:string ;
+.
+Publisher:AdvName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Advertisment ;
+  rdfs:label "Adv name" ;
+  rdfs:range xsd:string ;
+.
+Publisher:Adventure
+  rdf:type owl:Class ;
+  rdfs:label "Adventure " ;
+  rdfs:subClassOf Publisher:Book ;
+  owl:equivalentClass Publisher:Mystery ;
+.
+Publisher:Advertisment
+  rdf:type owl:Class ;
+  rdfs:label "Advertisment" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+Publisher:Agatha_Christie
+  rdf:type Publisher:Author ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:DateOfBirth "1890-09-15"^^xsd:date ;
+  Publisher:FirstName "Agatha" ;
+  Publisher:LastName "Christie" ;
+  Publisher:LivingPlace "Winterbrook" ;
+  Publisher:contactWith Publisher:Phyhogios ;
+  Publisher:hasWritten Publisher:The_Clocks ;
+  rdfs:label "Agatha Christie" ;
+.
+Publisher:AlphaChannel
+  rdf:type Publisher:TV ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:AdvName "AlphaChannel" ;
+  rdfs:label "AlphaChannel" ;
+.
+Publisher:Ant1Channel
+  rdf:type Publisher:TV ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:AdvName "Ant1Channel" ;
+  rdfs:label "Ant1Channel" ;
+.
+Publisher:AristotleUniversity
+  rdf:type Publisher:University ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:EduAddress "Ethnikis Aminis,Thessaloniki" ;
+  Publisher:EduName "Aristotle University" ;
+  Publisher:EduPhone "2310996000" ;
+  rdfs:label "Aristotle University" ;
+.
+Publisher:Author
+  rdf:type owl:Class ;
+  rdfs:label "Author" ;
+  rdfs:subClassOf Publisher:Person ;
+.
+Publisher:BillBoard
+  rdf:type Publisher:Poster ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:AdvName "BillBoard" ;
+  rdfs:label "Bill board" ;
+.
+Publisher:Book
+  rdf:type owl:Class ;
+  rdfs:label "Book" ;
+  rdfs:subClassOf Publisher:Products ;
+.
+Publisher:BookStore
+  rdf:type owl:Class ;
+  rdfs:label "Book store" ;
+  rdfs:subClassOf Publisher:Services ;
+  owl:equivalentClass Publisher:OnlineShop ;
+.
+Publisher:Books4u
+  rdf:type Publisher:OnlineShop ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:ContactEmail "books4u@gmail.com" ;
+  Publisher:sendTheNumberOfSales Publisher:Phyhogios ;
+  rdfs:comment "Online shop which have bookstore in Ioannina" ;
+  rdfs:label "Books4u" ;
+.
+Publisher:Bord_Games
+  rdf:type Publisher:TypeOfGames ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "Entertainment-Educational" ;
+  Publisher:PublishingDate "1935-06-30"^^xsd:date ;
+  Publisher:RangeofAge "4+" ;
+  Publisher:includedIn Publisher:Central_Library ;
+  Publisher:includedIn Publisher:FirstPrimary ;
+  Publisher:includedIn Publisher:_Kaiti_Laskaridi ;
+  rdfs:label "Bord Games" ;
+.
+Publisher:CampaignProjectWith
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Employee ;
+  rdfs:label "Campaign project with" ;
+  rdfs:range Publisher:Employee ;
+  rdfs:subPropertyOf Publisher:collaborateWith ;
+.
+Publisher:Central_Library
+  rdf:type Publisher:PublicLib ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:EduAddress "Ethnikis Aminis 27,Thessaloniki" ;
+  Publisher:EduName "Central Library Thessaloniki" ;
+  Publisher:EduPhone "2313-318-570" ;
+  rdfs:label "Central Library" ;
+.
+Publisher:Central_Library_Thessaloniki
+  rdf:type owl:NamedIndividual ;
+  Publisher:EduAddress "Ethnikis Aminis 27,Thessaloniki" ;
+  Publisher:EduName "Public Library " ;
+  Publisher:EduPhone "2313318570" ;
+  rdfs:label "Central_Library_Thessaloniki" ;
+.
+Publisher:CheckSpelling
+  rdf:type Publisher:EditorTeam ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "A position of work who make changes in grammar,syntax" ;
+  rdfs:label "Check spelling" ;
+.
+Publisher:Comedy
+  rdf:type owl:Class ;
+  rdfs:label "Comedy" ;
+  rdfs:subClassOf Publisher:Magazine ;
+.
+Publisher:ContactEmail
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Services ;
+  rdfs:label "Contact email" ;
+  rdfs:range xsd:string ;
+.
+Publisher:Content
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Products ;
+  rdfs:label "Content" ;
+  rdfs:range xsd:string ;
+.
+Publisher:Customer
+  rdf:type owl:Class ;
+  rdfs:subClassOf Publisher:Person ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "5"^^xsd:nonNegativeInteger ;
+      owl:onClass Publisher:Products ;
+      owl:onProperty Publisher:borrows ;
+    ] ;
+.
+Publisher:Dan_Brown
+  rdf:type Publisher:Author ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:DateOfBirth "1964-06-22"^^xsd:date ;
+  Publisher:FirstName "Dan" ;
+  Publisher:LastName "Brown" ;
+  Publisher:LivingPlace "Exeter" ;
+  Publisher:contactWith Publisher:Phyhogios ;
+  Publisher:hasWritten Publisher:Digital_Fortress ;
+  rdfs:label "Dan Brown" ;
+.
+Publisher:DateOfBirth
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Person ;
+  rdfs:label "Date of birth" ;
+  rdfs:range xsd:date ;
+.
+Publisher:Department
+  rdf:type owl:Class ;
+  rdfs:label "Department" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+Publisher:Designer
+  rdf:type Publisher:EditorTeam ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "A position who is responsible for the appearance of products" ;
+  rdfs:label "Designer" ;
+.
+Publisher:Developer
+  rdf:type Publisher:TechnicalTeam ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "Responsible for programming skills" ;
+  rdfs:label "Developer" ;
+.
+Publisher:Digital_Fortress
+  rdf:type Publisher:Thriller ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "A new code about cryptography" ;
+  Publisher:PublishingDate "1998-10-25"^^xsd:date ;
+  Publisher:RangeofAge "18+" ;
+  Publisher:hasBeenWtitten Publisher:Dan_Brown ;
+  Publisher:includedIn Publisher:AristotleUniversity ;
+  Publisher:includedIn Publisher:FirstPrimary ;
+  rdfs:label "Digital Fortress" ;
+.
+Publisher:EditorTeam
+  rdf:type owl:Class ;
+  rdfs:label "Editor team" ;
+  rdfs:subClassOf Publisher:Department ;
+.
+Publisher:EduAddress
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Education ;
+  rdfs:label "Edu address" ;
+  rdfs:range xsd:string ;
+.
+Publisher:EduName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Education ;
+  rdfs:label "Edu name" ;
+  rdfs:range xsd:string ;
+.
+Publisher:EduPhone
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Education ;
+  rdfs:label "Edu phone" ;
+  rdfs:range xsd:string ;
+.
+Publisher:Education
+  rdf:type owl:Class ;
+  rdfs:label "Education" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+Publisher:Educational
+  rdf:type owl:Class ;
+  rdfs:label "Educational" ;
+  rdfs:subClassOf Publisher:Magazine ;
+.
+Publisher:EducationalProgramms
+  rdf:type owl:Class ;
+  rdfs:label "Educational programms" ;
+  rdfs:subClassOf Publisher:Products ;
+.
+Publisher:Eleni_Dafnidi
+  rdf:type Publisher:Author ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:DateOfBirth "1978-05-13"^^xsd:date ;
+  Publisher:FirstName "Eleni" ;
+  Publisher:LastName "Dafnidi" ;
+  Publisher:LivingPlace "Nicosia" ;
+  Publisher:contactWith Publisher:Phyhogios ;
+  Publisher:hasWritten Publisher:I_did_not_see_you_I_did_not_know ;
+  rdfs:label "Eleni Dafnidi" ;
+.
+Publisher:Employee
+  rdf:type owl:Class ;
+  rdfs:label "Employee" ;
+  rdfs:subClassOf Publisher:Person ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass Publisher:Department ;
+      owl:onProperty Publisher:workAs ;
+    ] ;
+.
+Publisher:Facebook
+  rdf:type Publisher:Social_Media ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:AdvName "Facebook" ;
+  rdfs:label "Facebook" ;
+.
+Publisher:FirstName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Person ;
+  rdfs:label "First name" ;
+  rdfs:range xsd:string ;
+.
+Publisher:FirstPrimary
+  rdf:type Publisher:Primary ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:EduAddress "Lampraki 204,Thessaloniki" ;
+  Publisher:EduName "1st Primary School" ;
+  Publisher:EduPhone "2310930314" ;
+  rdfs:label "1st Primary school" ;
+.
+Publisher:Giannis_Milwnidis
+  rdf:type Publisher:Customer ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:DateOfBirth "1985-01-01"^^xsd:date ;
+  Publisher:FirstName "Ioannis " ;
+  Publisher:LastName "Milwnidis" ;
+  Publisher:LivingPlace "Athens" ;
+  Publisher:borrows Publisher:Digital_Fortress ;
+  Publisher:borrows Publisher:Research_and_Action ;
+  rdfs:label "Giannis Milwnidis" ;
+.
+Publisher:HighSchool
+  rdf:type owl:Class ;
+  rdfs:subClassOf Publisher:School ;
+.
+Publisher:Historical_Biography
+  rdf:type owl:Class ;
+  rdfs:label "Historical Biography" ;
+  rdfs:subClassOf Publisher:Book ;
+.
+Publisher:HumanRights
+  rdf:type Publisher:Science_Fiction ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "Scientific" ;
+  Publisher:PublishingDate "2013-05-09"^^xsd:date ;
+  Publisher:RangeofAge "16+" ;
+  Publisher:hasBeenWtitten Publisher:Revue_Hellenique ;
+  Publisher:includedIn Publisher:Central_Library ;
+  Publisher:includedIn Publisher:FirstPrimary ;
+  Publisher:includedIn Publisher:SixthHighSchool ;
+  rdfs:label "Human Rights" ;
+.
+Publisher:I_am_not_a_man_i_am_a_dynamite
+  rdf:type Publisher:Historical_Biography ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "Autobiography about Nitse" ;
+  Publisher:PublishingDate "2021-05-12"^^xsd:date ;
+  Publisher:RangeofAge "19+" ;
+  Publisher:hasBeenWtitten Publisher:Sue_Prideuax ;
+  Publisher:includedIn Publisher:AristotleUniversity ;
+  Publisher:includedIn Publisher:KapodistrianUniversity ;
+  rdfs:label " i am a dynamite" ;
+.
+Publisher:I_did_not_see_you_I_did_not_know
+  rdf:type Publisher:Comedy ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "Revenge" ;
+  Publisher:PublishingDate "2016-06-09"^^xsd:date ;
+  Publisher:RangeofAge "18+" ;
+  Publisher:hasBeenWtitten Publisher:Eleni_Dafnidi ;
+  Publisher:includedIn Publisher:Central_Library ;
+  rdfs:label "I did not see you I did not know" ;
+.
+Publisher:Instagram
+  rdf:type Publisher:Social_Media ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:AdvName "Instagram" ;
+  rdfs:label "Instagram" ;
+.
+Publisher:Jake_Blake
+  rdf:type Publisher:Employee ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:CampaignProjectWith Publisher:Monica_Geller ;
+  Publisher:DateOfBirth "1986-05-10"^^xsd:date ;
+  Publisher:FirstName "Jacob" ;
+  Publisher:LastName "Blake" ;
+  Publisher:LivingPlace "Thessaloniki" ;
+  Publisher:collaborateWith Publisher:Thomas_Tagaras ;
+  Publisher:informs Publisher:Politeia ;
+  Publisher:isPartOf Publisher:Phyhogios ;
+  Publisher:workAs Publisher:OrganiserParcels ;
+  Publisher:workAs Publisher:SecurityGuard ;
+  Publisher:worksAt Publisher:Phyhogios ;
+  rdfs:label "Jake Blake" ;
+.
+Publisher:KapodistrianUniversity
+  rdf:type Publisher:University ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:EduAddress "Papadiamantopoulou 123, Athens" ;
+  Publisher:EduName "Kapodistrian University" ;
+  Publisher:EduPhone "2107277000" ;
+  rdfs:label "Kapodistrian University" ;
+.
+Publisher:Katia_Stamatiadi
+  rdf:type Publisher:Customer ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:DateOfBirth "2015-08-29"^^xsd:date ;
+  Publisher:FirstName "Kyriaki " ;
+  Publisher:LastName "Stamatiadi" ;
+  Publisher:LivingPlace "Ioannina" ;
+  Publisher:borrows Publisher:HumanRights ;
+  Publisher:borrows Publisher:Puzzles ;
+  rdfs:label "Katia Stamatiadi" ;
+.
+Publisher:LastName
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Person ;
+  rdfs:label "Last name" ;
+  rdfs:range xsd:string ;
+.
+Publisher:Lectures
+  rdf:type owl:Class ;
+  rdfs:label "Lectures" ;
+  rdfs:subClassOf Publisher:EducationalProgramms ;
+.
+Publisher:Lego
+  rdf:type Publisher:TypeOfGames ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "Entertainment" ;
+  Publisher:PublishingDate "1949-04-08"^^xsd:date ;
+  Publisher:RangeofAge "4+" ;
+  Publisher:includedIn Publisher:Central_Library ;
+  Publisher:includedIn Publisher:FirstPrimary ;
+  rdfs:label "Lego" ;
+.
+Publisher:Library
+  rdf:type owl:Class ;
+  rdfs:label "Library" ;
+  rdfs:subClassOf Publisher:Education ;
+.
+Publisher:LivingPlace
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Person ;
+  rdfs:label "Living place" ;
+  rdfs:range xsd:string ;
+.
+Publisher:Magazine
+  rdf:type owl:Class ;
+  rdfs:label "Magazine" ;
+  rdfs:subClassOf Publisher:Products ;
+.
+Publisher:Maria_Papakosta
+  rdf:type Publisher:Employee ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:CampaignProjectWith Publisher:Jake_Blake ;
+  Publisher:DateOfBirth "1985-11-20"^^xsd:date ;
+  Publisher:FirstName "Maria" ;
+  Publisher:LastName "Papakosta" ;
+  Publisher:LivingPlace "Larisa" ;
+  Publisher:collaborateWith Publisher:Monica_Geller ;
+  Publisher:informs Publisher:Miet ;
+  Publisher:isPartOf Publisher:Phyhogios ;
+  Publisher:workAs Publisher:CheckSpelling ;
+  Publisher:worksAt Publisher:Phyhogios ;
+  rdfs:label "Mary Papakosta" ;
+.
+Publisher:MegaChannel
+  rdf:type Publisher:TV ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:AdvName "MegaChannel" ;
+  rdfs:label "MegaChannel" ;
+.
+Publisher:Miet
+  rdf:type Publisher:BookStore ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Address "Tsimiski 11" ;
+  Publisher:ContactEmail " bookstore-thessaloniki@miet.gr" ;
+  Publisher:sendTheNumberOfSales Publisher:Patakis ;
+  rdfs:comment "A bookstore in the center of Thessaloniki" ;
+  rdfs:label "Miet" ;
+.
+Publisher:Mikri_Methorios
+  rdf:type Publisher:Lectures ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "Greek Poetry" ;
+  Publisher:PublishingDate "2021-12-08"^^xsd:date ;
+  Publisher:RangeofAge "16+" ;
+  Publisher:includedIn Publisher:AristotleUniversity ;
+  Publisher:includedIn Publisher:SixthHighSchool ;
+  rdfs:label "Mikri Methorios" ;
+.
+Publisher:Monica_Geller
+  rdf:type Publisher:Employee ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:CampaignProjectWith Publisher:Maria_Papakosta ;
+  Publisher:DateOfBirth "1991-07-08"^^xsd:date ;
+  Publisher:FirstName "Monica" ;
+  Publisher:LastName "Geller" ;
+  Publisher:LivingPlace "Ioannina" ;
+  Publisher:collaborateWith Publisher:Thomas_Tagaras ;
+  Publisher:informs Publisher:Books4u ;
+  Publisher:isPartOf Publisher:Patakis ;
+  Publisher:workAs Publisher:Designer ;
+  Publisher:workAs Publisher:Developer ;
+  Publisher:worksAt Publisher:Patakis ;
+  rdfs:label "Monica Geller" ;
+.
+Publisher:Mystery
+  rdf:type owl:Class ;
+  rdfs:label "Mystery" ;
+  rdfs:subClassOf Publisher:Book ;
+.
+Publisher:Name
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Publisher ;
+  rdfs:label "Name" ;
+  rdfs:range xsd:string ;
+.
+Publisher:OnlineShop
+  rdf:type owl:Class ;
+  rdfs:label "Online shop" ;
+  rdfs:subClassOf Publisher:Services ;
+.
+Publisher:OrganiserParcels
+  rdf:type Publisher:StorageTeam ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "Responsible to organise the parsel in the storage" ;
+  rdfs:label "Organiser parcels" ;
+.
+Publisher:Panagiotis_Kokkotas
+  rdf:type Publisher:Author ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:DateOfBirth "1963-05-03"^^xsd:date ;
+  Publisher:FirstName "Panagiotis" ;
+  Publisher:LastName "Kokkotas" ;
+  Publisher:LivingPlace "Athens" ;
+  Publisher:contactWith Publisher:Patakis ;
+  Publisher:hasWritten Publisher:Research_and_Action ;
+  rdfs:label "Panagiotis Kokkotas " ;
+.
+Publisher:Patakis
+  rdf:type Publisher:Publisher ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Name "Patakis" ;
+  Publisher:PhoneNumber "210-325-9685" ;
+  Publisher:SuppliesCopies Publisher:Books4u ;
+  Publisher:SuppliesCopies Publisher:Miet ;
+  Publisher:SuppliesCopies Publisher:Politeia ;
+  Publisher:SuppliesCopies Publisher:Public ;
+  Publisher:givesMoneyAt Publisher:AlphaChannel ;
+  Publisher:givesMoneyAt Publisher:Twitter ;
+  Publisher:givesMoneyAt Publisher:ZooRadio ;
+  Publisher:hasGot Publisher:CheckSpelling ;
+  Publisher:hasGot Publisher:Designer ;
+  Publisher:hasGot Publisher:Developer ;
+  Publisher:hasGot Publisher:OrganiserParcels ;
+  Publisher:hasOrganized Publisher:Mikri_Methorios ;
+  Publisher:hasOrganized Publisher:Tribute_to_Mikis_Theodorakis ;
+  Publisher:makesCopies Publisher:Bord_Games ;
+  Publisher:makesCopies Publisher:HumanRights ;
+  Publisher:makesCopies Publisher:I_am_not_a_man_i_am_a_dynamite ;
+  Publisher:makesCopies Publisher:Research_and_Action ;
+  Publisher:makesCopies Publisher:Rubics ;
+  Publisher:makesCopies Publisher:Thomas_QBit_Traveller_in_time ;
+  Publisher:providesOn Publisher:FirstPrimary ;
+  Publisher:providesOn Publisher:KapodistrianUniversity ;
+  rdfs:label "Patakis" ;
+.
+Publisher:Person
+  rdf:type owl:Class ;
+  rdfs:label "Person" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+Publisher:PhoneNumber
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Publisher ;
+  rdfs:label "Phone number" ;
+  rdfs:range xsd:string ;
+.
+Publisher:Phyhogios
+  rdf:type Publisher:Publisher ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Name "Phyhogios" ;
+  Publisher:PhoneNumber "211-986-6325" ;
+  Publisher:SuppliesCopies Publisher:Politeia ;
+  Publisher:SuppliesCopies Publisher:Public ;
+  Publisher:SuppliesCopies <http://example.org/Publisher#greekbooks.gr> ;
+  Publisher:givesMoneyAt Publisher:BillBoard ;
+  Publisher:givesMoneyAt Publisher:Facebook ;
+  Publisher:givesMoneyAt Publisher:PlusRadio ;
+  Publisher:hasGot Publisher:Developer ;
+  Publisher:hasGot Publisher:SecurityGuard ;
+  Publisher:hasGot Publisher:Support ;
+  Publisher:hasOrganized Publisher:Presentation_Dark_Light ;
+  Publisher:makesCopies Publisher:Digital_Fortress ;
+  Publisher:makesCopies Publisher:I_did_not_see_you_I_did_not_know ;
+  Publisher:makesCopies Publisher:Lego ;
+  Publisher:makesCopies Publisher:Puzzles ;
+  Publisher:makesCopies Publisher:The_Clocks ;
+  Publisher:providesOn Publisher:AristotleUniversity ;
+  Publisher:providesOn Publisher:Central_Library_Thessaloniki ;
+  Publisher:providesOn Publisher:SixthHighSchool ;
+  rdfs:label "Phyhogios" ;
+.
+Publisher:PlusRadio
+  rdf:type Publisher:Radio ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:AdvName "Plus radio" ;
+  rdfs:label "Plus radio" ;
+.
+Publisher:Politeia
+  rdf:type Publisher:BookStore ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Address "Asklipiou 1" ;
+  Publisher:ContactEmail " contact@politeianet.gr" ;
+  Publisher:sendTheNumberOfSales Publisher:Phyhogios ;
+  rdfs:comment "A bookstore in Athens" ;
+  rdfs:label "Politeia" ;
+.
+Publisher:Poster
+  rdf:type owl:Class ;
+  rdfs:label "Poster" ;
+  rdfs:subClassOf Publisher:Advertisment ;
+.
+Publisher:Presentation_Dark_Light
+  rdf:type Publisher:Lectures ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "Historical " ;
+  Publisher:PublishingDate "2021-12-07"^^xsd:date ;
+  Publisher:RangeofAge """16+
+""" ;
+  Publisher:includedIn Publisher:AristotleUniversity ;
+  Publisher:includedIn Publisher:KapodistrianUniversity ;
+  Publisher:includedIn Publisher:SixthHighSchool ;
+  rdfs:comment "A presantation for a new book" ;
+  rdfs:label "Presentation Dark Light" ;
+.
+Publisher:Primary
+  rdf:type owl:Class ;
+  rdfs:subClassOf Publisher:School ;
+.
+Publisher:PrivateLib
+  rdf:type owl:Class ;
+  rdfs:subClassOf Publisher:Library ;
+.
+Publisher:Products
+  rdf:type owl:Class ;
+  rdfs:label "Products" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+Publisher:Public
+  rdf:type Publisher:OnlineShop ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:ContactEmail "public@news.public.gr" ;
+  Publisher:sendTheNumberOfSales Publisher:Patakis ;
+.
+Publisher:PublicLib
+  rdf:type owl:Class ;
+  rdfs:label "Public lib" ;
+  rdfs:subClassOf Publisher:Library ;
+.
+Publisher:Publisher
+  rdf:type owl:Class ;
+  rdfs:label "Publisher" ;
+  rdfs:subClassOf rdfs:Resource ;
+  owl:equivalentClass [
+      rdf:type owl:Restriction ;
+      owl:onProperty Publisher:givesMoneyAt ;
+      owl:someValuesFrom Publisher:Advertisment ;
+    ] ;
+.
+Publisher:PublishingDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Products ;
+  rdfs:label "Publishing date" ;
+  rdfs:range xsd:date ;
+.
+Publisher:Puzzles
+  rdf:type Publisher:TypeOfGames ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "Entertainment-Educational" ;
+  Publisher:PublishingDate "1913-12-21"^^xsd:date ;
+  Publisher:RangeofAge "4+" ;
+  Publisher:includedIn Publisher:Central_Library ;
+  Publisher:includedIn Publisher:FirstPrimary ;
+  Publisher:includedIn Publisher:SixthHighSchool ;
+  Publisher:includedIn Publisher:_Kaiti_Laskaridi ;
+  rdfs:label "Puzzles" ;
+.
+Publisher:Radio
+  rdf:type owl:Class ;
+  rdfs:label "Radio" ;
+  rdfs:subClassOf Publisher:Advertisment ;
+.
+Publisher:RangeofAge
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain Publisher:Products ;
+  rdfs:label "Rangeof age" ;
+  rdfs:range xsd:string ;
+.
+Publisher:Research_and_Action
+  rdf:type Publisher:Educational ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "Detective & Mystery" ;
+  Publisher:PublishingDate "2021-11-02"^^xsd:date ;
+  Publisher:RangeofAge "18+" ;
+  Publisher:hasBeenWtitten Publisher:Panagiotis_Kokkotas ;
+  Publisher:includedIn Publisher:AristotleUniversity ;
+  Publisher:includedIn Publisher:KapodistrianUniversity ;
+  Publisher:includedIn Publisher:SixthHighSchool ;
+  rdfs:label "Research and Action" ;
+.
+Publisher:Revue_Hellenique
+  rdf:type Publisher:Author ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:DateOfBirth "1986-06-15"^^xsd:date ;
+  Publisher:FirstName "Revue" ;
+  Publisher:LastName "Hellenique" ;
+  Publisher:LivingPlace "Berlin" ;
+  Publisher:contactWith Publisher:Patakis ;
+  Publisher:hasWritten Publisher:HumanRights ;
+  rdfs:label "Revue Hellenique" ;
+.
+Publisher:Rubics
+  rdf:type Publisher:TypeOfGames ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "BrainTrain" ;
+  Publisher:PublishingDate "1974-01-16"^^xsd:date ;
+  Publisher:RangeofAge "All ages" ;
+  Publisher:includedIn Publisher:AristotleUniversity ;
+  Publisher:includedIn Publisher:KapodistrianUniversity ;
+  Publisher:includedIn Publisher:SixthHighSchool ;
+  rdfs:label "Rubics" ;
+.
+Publisher:School
+  rdf:type owl:Class ;
+  rdfs:label "School" ;
+  rdfs:subClassOf Publisher:Education ;
+.
+Publisher:Science_Fiction
+  rdf:type owl:Class ;
+  rdfs:label "Science Fiction" ;
+  rdfs:subClassOf Publisher:Magazine ;
+.
+Publisher:Scientific
+  rdf:type owl:Class ;
+  rdfs:label "Scientific" ;
+  rdfs:subClassOf Publisher:Book ;
+.
+Publisher:SecurityGuard
+  rdf:type Publisher:StorageTeam ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "Responsible to keep safe the productts of publisher" ;
+  rdfs:label "Security guard" ;
+.
+Publisher:Services
+  rdf:type owl:Class ;
+  rdfs:label "Services" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+Publisher:SixthHighSchool
+  rdf:type Publisher:HighSchool ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:EduAddress "Merarchias 1,Larisa" ;
+  Publisher:EduName "Sixth High School" ;
+  Publisher:EduPhone "2410614566" ;
+  rdfs:label "6th high school" ;
+.
+Publisher:Social_Media
+  rdf:type owl:Class ;
+  rdfs:label "Social Media" ;
+  rdfs:subClassOf Publisher:Advertisment ;
+.
+Publisher:StorageTeam
+  rdf:type owl:Class ;
+  rdfs:label "Storage team" ;
+  rdfs:subClassOf Publisher:Department ;
+.
+Publisher:Sue_Prideuax
+  rdf:type Publisher:Author ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:DateOfBirth "1946-02-14"^^xsd:date ;
+  Publisher:FirstName "Sue" ;
+  Publisher:LastName "Prideuax" ;
+  Publisher:LivingPlace "London" ;
+  Publisher:contactWith Publisher:Patakis ;
+  Publisher:hasWritten Publisher:I_am_not_a_man_i_am_a_dynamite ;
+  rdfs:label "Sue_Prideuax" ;
+.
+Publisher:SuppliesCopies
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Publisher ;
+  rdfs:label "Supplies copies" ;
+  rdfs:range Publisher:Services ;
+.
+Publisher:Support
+  rdf:type Publisher:TechnicalTeam ;
+  rdf:type owl:NamedIndividual ;
+  rdfs:comment "Technical support in different issues" ;
+  rdfs:label "Support" ;
+.
+Publisher:TV
+  rdf:type owl:Class ;
+  rdfs:label "TV" ;
+  rdfs:subClassOf Publisher:Advertisment ;
+.
+Publisher:TechnicalTeam
+  rdf:type owl:Class ;
+  rdfs:label "Technical team" ;
+  rdfs:subClassOf Publisher:Department ;
+.
+Publisher:The_Big_Four
+  rdf:type Publisher:Adventure ;
+  rdf:type Publisher:Mystery ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "Mystery_Murder Investigation" ;
+  Publisher:PublishingDate "1927-01-17"^^xsd:date ;
+  Publisher:RangeofAge "16+" ;
+  Publisher:hasBeenWtitten Publisher:Agatha_Christie ;
+  Publisher:includedIn Publisher:Central_Library ;
+  Publisher:includedIn Publisher:_Kaiti_Laskaridi ;
+  rdfs:label "The Big Four" ;
+.
+Publisher:The_Clocks
+  rdf:type Publisher:Adventure ;
+  rdf:type Publisher:Mystery ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "Mystery_Murder Investigation" ;
+  Publisher:PublishingDate "1963-11-07"^^xsd:date ;
+  Publisher:RangeofAge "16+" ;
+  Publisher:hasBeenWtitten Publisher:Agatha_Christie ;
+  Publisher:includedIn Publisher:Central_Library ;
+  Publisher:includedIn Publisher:_Kaiti_Laskaridi ;
+  rdfs:label "The Clocks" ;
+.
+Publisher:Thomas_QBit_Traveller_in_time
+  rdf:type Publisher:Scientific ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "It's about a high school boy who intrested in quantum" ;
+  Publisher:PublishingDate "2017-02-16"^^xsd:date ;
+  Publisher:RangeofAge """9-12
+""" ;
+  Publisher:hasBeenWtitten Publisher:Vaggelis_Hliopoulos ;
+  Publisher:includedIn Publisher:Central_Library ;
+  Publisher:includedIn Publisher:FirstPrimary ;
+  Publisher:includedIn Publisher:_Kaiti_Laskaridi ;
+  rdfs:label "Traveller in time" ;
+.
+Publisher:Thomas_Tagaras
+  rdf:type Publisher:Employee ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:CampaignProjectWith Publisher:Jake_Blake ;
+  Publisher:DateOfBirth "2000-04-28"^^xsd:date ;
+  Publisher:FirstName "Thomas" ;
+  Publisher:LastName "Thomas" ;
+  Publisher:LivingPlace "Thessaloniki" ;
+  Publisher:collaborateWith Publisher:Maria_Papakosta ;
+  Publisher:informs Publisher:Books4u ;
+  Publisher:informs Publisher:Public ;
+  Publisher:informs <http://example.org/Publisher#greekbooks.gr> ;
+  Publisher:isPartOf Publisher:Patakis ;
+  Publisher:workAs Publisher:Support ;
+  Publisher:worksAt Publisher:Patakis ;
+  rdfs:label "Thomas Tagaras" ;
+.
+Publisher:Thriller
+  rdf:type owl:Class ;
+  rdfs:label "Thriller" ;
+  rdfs:subClassOf Publisher:Book ;
+.
+Publisher:Tribute_to_Mikis_Theodorakis
+  rdf:type Publisher:Lectures ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Content "Educational" ;
+  Publisher:PublishingDate "2021-12-03"^^xsd:date ;
+  Publisher:RangeofAge "15+" ;
+  Publisher:includedIn Publisher:FirstPrimary ;
+  Publisher:includedIn Publisher:KapodistrianUniversity ;
+  Publisher:includedIn Publisher:SixthHighSchool ;
+  rdfs:comment "It's documentary type which has been record" ;
+  rdfs:label "Tribute to Mikis Theodorakis" ;
+.
+Publisher:Twitter
+  rdf:type Publisher:Social_Media ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:AdvName "Twitter" ;
+  rdfs:label "Twitter" ;
+.
+Publisher:TypeOfGames
+  rdf:type owl:Class ;
+  rdfs:label "Games" ;
+  rdfs:subClassOf Publisher:EducationalProgramms ;
+.
+Publisher:University
+  rdf:type owl:Class ;
+  rdfs:label "University" ;
+  rdfs:subClassOf Publisher:Education ;
+.
+Publisher:Vaggelis_Hliopoulos
+  rdf:type Publisher:Author ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:DateOfBirth "1964-07-28"^^xsd:date ;
+  Publisher:FirstName "Euaggelos" ;
+  Publisher:LastName "Iliopoulos" ;
+  Publisher:LivingPlace "Athens" ;
+  Publisher:contactWith Publisher:Phyhogios ;
+  Publisher:hasWritten Publisher:Thomas_QBit_Traveller_in_time ;
+  rdfs:label "Vaggelis Hliopoulos" ;
+.
+Publisher:Vasilis_Ntelopoulos
+  rdf:type Publisher:Customer ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:DateOfBirth "2000-05-13"^^xsd:date ;
+  Publisher:FirstName "Vasileios" ;
+  Publisher:LastName "Ntelopoulos" ;
+  Publisher:LivingPlace "Larisa" ;
+  Publisher:borrows Publisher:Thomas_QBit_Traveller_in_time ;
+  rdfs:label "Vasilis Ntelopoulos" ;
+.
+Publisher:Vasw_Papapaulou
+  rdf:type Publisher:Customer ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:DateOfBirth "2005-06-29"^^xsd:date ;
+  Publisher:FirstName "Vasileia" ;
+  Publisher:LastName " Papapaulou" ;
+  Publisher:LivingPlace "Volos" ;
+  Publisher:borrows Publisher:I_am_not_a_man_i_am_a_dynamite ;
+  Publisher:borrows Publisher:I_did_not_see_you_I_did_not_know ;
+  rdfs:label "Vasw Papapaulou" ;
+.
+Publisher:Zoi_Kelepiri
+  rdf:type Publisher:Customer ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:DateOfBirth "1999-07-28"^^xsd:date ;
+  Publisher:FirstName "Zoi" ;
+  Publisher:LastName "Kelepiri" ;
+  Publisher:LivingPlace "Thessaloniki" ;
+  Publisher:borrows Publisher:Bord_Games ;
+  Publisher:borrows Publisher:Lego ;
+  Publisher:borrows Publisher:The_Clocks ;
+  rdfs:label "Zoi Kelepiri" ;
+.
+Publisher:ZooRadio
+  rdf:type Publisher:Radio ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:AdvName "Zoo radio" ;
+  rdfs:label "Zoo radio" ;
+.
+Publisher:_Kaiti_Laskaridi
+  rdf:type Publisher:PrivateLib ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:EduAddress "Kountouriwti 173,Peiraeus" ;
+  Publisher:EduName "Library Kaiti Laskaridi" ;
+  Publisher:EduPhone "210-4100-956" ;
+  rdfs:label " Kaiti Laskaridi" ;
+.
+Publisher:borrows
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Customer ;
+  rdfs:label "borrows" ;
+  rdfs:range Publisher:Products ;
+.
+Publisher:collaborateWith
+  rdf:type owl:ObjectProperty ;
+  rdf:type owl:TransitiveProperty ;
+  rdfs:domain Publisher:Employee ;
+  rdfs:label "collaborate with" ;
+  rdfs:range Publisher:Employee ;
+.
+Publisher:contactWith
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Author ;
+  rdfs:label "contact with" ;
+  rdfs:range Publisher:Publisher ;
+.
+Publisher:givesMoneyAt
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Publisher ;
+  rdfs:label "gives money at" ;
+  rdfs:range Publisher:Advertisment ;
+.
+<http://example.org/Publisher#greekbooks.gr>
+  rdf:type Publisher:BookStore ;
+  rdf:type owl:NamedIndividual ;
+  Publisher:Address "Mitropolews 45" ;
+  Publisher:ContactEmail "sales@greekbooks.gr" ;
+  Publisher:sendTheNumberOfSales Publisher:Patakis ;
+  rdfs:comment "A bookstore in the center of Thessaloniki" ;
+  rdfs:label "greekbooks.gr" ;
+.
+Publisher:hasBeenWtitten
+  rdf:type owl:FunctionalProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Products ;
+  rdfs:label "has been wtitten" ;
+  rdfs:range Publisher:Author ;
+  owl:inverseOf Publisher:hasWritten ;
+.
+Publisher:hasGot
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Publisher ;
+  rdfs:label "has got" ;
+  rdfs:range Publisher:Department ;
+.
+Publisher:hasOrganized
+  rdf:type owl:InverseFunctionalProperty ;
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Publisher ;
+  rdfs:label "has organized" ;
+  rdfs:range Publisher:Lectures ;
+.
+Publisher:hasWritten
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Author ;
+  rdfs:label "has written" ;
+  rdfs:range Publisher:Products ;
+.
+Publisher:includedIn
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Products ;
+  rdfs:label "included in" ;
+  rdfs:range Publisher:Education ;
+.
+Publisher:informs
+  rdf:type owl:ObjectProperty ;
+  rdf:type owl:SymmetricProperty ;
+  rdfs:domain Publisher:Employee ;
+  rdfs:label "informs" ;
+  rdfs:range Publisher:Services ;
+.
+Publisher:isPartOf
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Employee ;
+  rdfs:label "is part of" ;
+  rdfs:range Publisher:Publisher ;
+  owl:equivalentProperty Publisher:worksAt ;
+.
+Publisher:makesCopies
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Publisher ;
+  rdfs:label "makes copies" ;
+  rdfs:range Publisher:Products ;
+.
+Publisher:providesOn
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Publisher ;
+  rdfs:label "provides on" ;
+  rdfs:range Publisher:Education ;
+.
+Publisher:sendTheNumberOfSales
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Services ;
+  rdfs:label "send the number of sales" ;
+  rdfs:range Publisher:Publisher ;
+.
+Publisher:workAs
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Employee ;
+  rdfs:label "work as" ;
+  rdfs:range Publisher:Department ;
+.
+Publisher:worksAt
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain Publisher:Employee ;
+  rdfs:label "works at" ;
+  rdfs:range Publisher:Publisher ;
+.
+rdfs:Resource
+  rdf:type owl:Class ;
+.
+xsd:date
+  rdf:type rdfs:Datatype ;
+.
